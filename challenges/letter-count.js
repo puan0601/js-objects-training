@@ -30,4 +30,21 @@
 
 */
 
-// YOUR CODE HERE
+function letterCount(x) {
+  var letters = {};
+  var splitX = x.split("");
+  splitX.forEach(function(el) {
+    if (!Object.keys(letters).includes(el)) {
+      // console.log(letters);
+      // console.log('el not included in obj');
+      letters[el] = 1;
+    } else {
+      // console.log(letters);
+      // console.log('incrementing el');
+      letters[el] += 1;
+    }
+  });
+  console.log(letters);
+}
+
+letterCount("iuhiurhtboiuwhrtboiuwhoiuhboiwrhboiwrthoiqrh");
