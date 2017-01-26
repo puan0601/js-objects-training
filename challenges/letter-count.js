@@ -32,19 +32,25 @@
 
 function letterCount(x) {
   var letters = {};
-  var splitX = x.split("");
+  var regex = /^[a-z]/g;
+  var splitX = x.toLowerCase().split("");
   splitX.forEach(function(el) {
-    if (!Object.keys(letters).includes(el)) {
-      // console.log(letters);
-      // console.log('el not included in obj');
-      letters[el] = 1;
-    } else {
-      // console.log(letters);
-      // console.log('incrementing el');
-      letters[el] += 1;
+    if (el.match(regex)) {
+      if (((!Object.keys(letters).includes(el)))) {
+        letters[el] = 1;
+      } else {
+        letters[el] += 1;
+      }
     }
   });
-  console.log(letters);
+var total = Object.values(letters).reduce(function(a,b) {
+  return a + b;
+}, 0);
+
+for (var key in letters) {
+  letters[key] = (letters[key]) / total;
+}
+console.log(letters);
 }
 
-letterCount("iuhiurhtboiuwhrtboiuwhoiuhboiwrhboiwrthoiqrh");
+letterCount("iuHIOJ OIJ  ve {}%^^$*urht()");
